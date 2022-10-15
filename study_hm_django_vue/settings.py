@@ -24,8 +24,9 @@ SECRET_KEY = "django-insecure-i5=8afqpw7rxlgzafl_ie4f19k7a0l48@9v+-oz&d2h-es!+k$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,6 +56,22 @@ ROOT_URLCONF = "study_hm_django_vue.urls"
 TEMPLATES = [
     {
         "BACKEND": 'django.template.backends.jinja2.Jinja2'
+        ,
+        "DIRS": [BASE_DIR / 'templates']
+        ,
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+    # django 模板
+    {
+        "BACKEND": 'django.template.backends.django.DjangoTemplates'
         ,
         "DIRS": [BASE_DIR / 'templates']
         ,
@@ -100,9 +117,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+# LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "zh-Hans"
 
-TIME_ZONE = "UTC"
+# TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Shanghai"
 
 USE_I18N = True
 
@@ -118,3 +137,5 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+APPEND_SLASH = False
