@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # CORS 跨域
+    'corsheaders',
+    # APP
     'public.apps.PublicConfig',
 ]
 
@@ -49,6 +52,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # CORS 跨域
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "study_hm_django_vue.urls"
@@ -139,3 +144,21 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 APPEND_SLASH = False
+
+# CORS 跨域全部通过
+# CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS 白名单
+CORS_ORIGIN_WHITELIST = (
+    'http://127.0.0.1',
+    'http://localhost',
+)
+# CORS 运行请求的方法
+CORS_ALLOW_METHODS = (
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+)
+
