@@ -8,9 +8,9 @@
 
 import os, sys
 
-from django.urls.conf import re_path
-from public import views
+from django.urls import re_path
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
-    re_path(r'', views.SignInView.as_view(), name='public')
+    
 ]

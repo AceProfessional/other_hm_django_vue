@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 import public.urls
+import users.urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    re_path('^public/',include((public.urls, 'public'), namespace='public')),
+    re_path(route='^public/', view=include((public.urls, 'public'), namespace='public')),
+    re_path(route='^users/', view=include((users.urls, 'users'), namespace='users')),
 ]
